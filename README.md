@@ -1,6 +1,6 @@
 # Feats / Feature Store
 
-`feats/feature-store` is a zero-dependency feature available in [several languages](#usage) to persist your features wherever you want and to deserialize them to whatever data input format you need. 
+`feats/feature-store` is a zero-dependency feature store available in [several languages](#usage) to persist your features wherever you want and to deserialize them to whatever data input format you need. 
 
 ## Examples
 
@@ -82,5 +82,42 @@ Pick your `feats/feature-store` implementation. See available languages below.
 
 > You can use different languages for persisting and deserializing, e.g. you can persist via `feats/feature-store-ts` and deserialize via `feats/feature-store-py`.
 
-- `Python`: [feats/feature-store-py](./)
-- `Node/JS/TS`: [feats/feature-store-ts](./)
+- `Python`: [feats/feature-store-py][ffs-py]
+- `Node/JS/TS`: [feats/feature-store-ts][ffs-node]
+
+## Supported Persistence Systems
+
+- **AWS**
+  - DynamoDB (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+  - Redshift (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+  - S3 (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+- **GCP**
+  - BigTable (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+  - Memorystore (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+  - BigQuery (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+  - CloudStorage (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+- **Kafka** (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+- **Redis** (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+- **Cassandra** (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+- **FileSystem** (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+- **SQLite** (available in: [`Python`][ffs-py], [`Node.js`][ffs-node])
+- **indexedDB** (available in: [`Node.js`][ffs-node])
+
+## Supported Deserialization Formats
+
+- **`Python`**: [`Numpy`][numpy-website], [`Pandas`][pandas-website], [`Tensorflow`][ts-website], [`PyTorch`][pytorch-website], [and many more ...](./)
+- **`Node.js`**: [`Tensorflow-js`][tsjs-website]
+
+## Extend
+
+Are you missing support for a persistence system or deserialization format? 
+
+See this [this guide](./) and learn how to easily implement it yourself.
+
+[ffs-py]: ./
+[ffs-node]: ./
+[numpy-website]: https://numpy.org/
+[pandas-website]: https://pandas.pydata.org/
+[ts-website]: https://www.tensorflow.org/
+[tsjs-website]: https://www.tensorflow.org/js/
+[pytorch-website]: https://pytorch.org/
