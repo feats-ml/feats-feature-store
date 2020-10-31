@@ -75,3 +75,12 @@ This means for you:
 - ✅ No new platform or infrastructure to learn
 - ✅ No platform, vendor, tooling lock-in
 - ✅ No unsupported workflows; extend, integrate, and make it fit your needs
+
+## Usage
+
+`feats/feature-store` is available for multiple languages.
+
+> You can use different languages for persisting and deserializing, e.g. you can persist via `feats/feature-store-ts` and deserialize via `feats/feature-store-py`.
+
+- `Python`: [feats/feature-store-py](./)
+- `Node/JS/TS`: [feats/feature-store-ts](./)
