@@ -1,10 +1,10 @@
 # Feats / Feature Store
 
-`feats/feature-store` is a zero-dependency feature store available in several languages (see below). 
+`feats/feature-store` is a zero-dependency feature available in [several languages](#usage) to persist your features wherever you want and to deserialize them to whatever data input format you need. 
 
-## What is `feats/feature-store`?
+## Examples
 
-`feats/feature-store` allows you to persist your features whereever you want and to deserialize them to whatever data input format you need.
+The following examples are for `TypeScript`, but you can choose [your prefered `feats/feature-store` language implementation](#usage).
 
 #### Persisting Feature Values
 
@@ -56,7 +56,7 @@ const labelTensor = await redshiftStore.load([
   'customer/age_in_years'
 ], tf.Tensor)
 
-// use the 
+// use the constructed tf.Tensors
 await model.fit(inputTensor, labelTensor)
 ```
 
@@ -71,14 +71,14 @@ Learn more e.g. Point-in-Time correctness, offline-online feature values
 
 This means for you:
 
-- ✅ No setup, maintainance, monitoring, outages
+- ✅ No setup, maintainance, monitoring, or downtimes
 - ✅ No new platform or infrastructure to learn
 - ✅ No platform, vendor, tooling lock-in
 - ✅ No unsupported workflows; extend, integrate, and make it fit your needs
 
 ## Usage
 
-`feats/feature-store` is available for multiple languages.
+Pick your `feats/feature-store` implementation. See available languages below.
 
 > You can use different languages for persisting and deserializing, e.g. you can persist via `feats/feature-store-ts` and deserialize via `feats/feature-store-py`.
 
