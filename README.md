@@ -1,6 +1,6 @@
 # Feats / Feature Store
 
-`feats/feature-store` is a zero-dependency feature store available in [several languages](#usage) to persist your features wherever you want and to deserialize them to whatever data input format you need. 
+`feats/feature-store` is a zero-dependency feature store available in [several languages](#usage) to persist your features wherever you want and to deserialize them to whatever data input format you need for your ML and data science work.
 
 ## Examples
 
