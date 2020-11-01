@@ -1,6 +1,6 @@
-# Feats / Feature Store
+# feature-store
 
-> `feature-store` is the fastest way to a Feature Store. It makes no assumptions on your current infrastructure, tooling, and workflows. There is nothing to host, maintain, or monitor. Just install the library and use it to store your features today.
+> `feature-store` is the fastest way to a Feature Store. It makes no assumptions on your current infrastructure, tooling, and workflows. There is nothing to host, maintain, or monitor. Just install the library and turn any storage into a Feature Store.
 
 `feature-store` is a code library, available for [several languages](#usage), that allows you to persist your features wherever you want and to deserialize them to whatever data input format you need.
 
