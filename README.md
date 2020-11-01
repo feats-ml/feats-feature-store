@@ -14,7 +14,14 @@
 import { AWS } from 'aws-sdk'
 import { FeatureStore, FeatureValue } from '@feats/feature-store'
 
-// create feature value(s)
+const redshift = new AWS.Redshift({ ...yourConfig })
+const dynamo = new AWS.DynamoDB({ ...yourConfig })
+
+// create your feature store(s) - as few or many as you want
+const offlineStore = new FeatureStore({ driver: redshift })
+const onlineStore = new FeatureStore({ driver: dynamo })
+
+// create your feature value(s)
 const featureValue = FeatureValue.from({
   entity: {
     name: 'customer',
@@ -28,41 +35,39 @@ const featureValue = FeatureValue.from({
   eventTime: new Date(2020, 08, 23, 14, 05)
 })
 
-// instantiate feature store(s)
-const redshift = new AWS.Redshift({ ...yourConfig })
-const redshiftStore = new FeatureStore({ driver: redshift })
-
-// persist feature value(s)
-await redshiftStore.persist(featureValue)
+// persist your feature value(s)
+await Promise.all([
+  offlineStore.persist(featureValue),
+  onlineStore.persist(featureValue)
+])
 ```
 
 Learn more e.g. register features, version features, and manage your features
 
-#### Deserializing Feature Values
+#### Loading Feature Values
 
 ```typescript
 import * as tf from '@tensorflow/tfjs'
 import { AWS } from 'aws-sdk'
 import { FeatureStore, FeatureValue } from '@feats/feature-store'
 
-// instantiate feature store(s)
-const redshift = new AWS.Redshift({ ...yourConfig })
-const redshiftStore = new FeatureStore({ driver: redshift })
+const loadFeatures = async (featureStore, type) => {
+  return {
+    input: await featureStore.load(['customer/basket_value_usd_cents'], type)
+    label: await featureStore.load(['customer/age_in_years'], type)
+   }
+}
 
-// load feature value(s)
-const inputTensor = await redshiftStore.load([
-  'customer/basket_value_usd_cents'
-], tf.Tensor)
+// for training
+const features = await loadFeatures(offlineStore, tf.Tensor)
+await model.fit(features.input, features.label)
 
-const labelTensor = await redshiftStore.load([
-  'customer/age_in_years'
-], tf.Tensor)
-
-// use the constructed tf.Tensors
-await model.fit(inputTensor, labelTensor)
+// in production
+const features = await loadFeatures(onlineStore, tf.Tensor)
+await model.predict(features.input, features.label)
 ```
 
-Learn more e.g. Point-in-Time correctness, offline-online feature values
+Learn more e.g. Point-in-Time correctness
 
 ## Why `feature-store`?
 
