@@ -1,10 +1,12 @@
 # Feats / Feature Store
 
-`feats/feature-store` is a zero-dependency feature store available in [several languages](#usage) to persist your features wherever you want and to deserialize them to whatever data input format you need for your ML and data science work.
+> `feature-store` is the fastest way to a Feature Store. It makes no assumptions on your current infrastructure, tooling, and workflows. There is nothing to host, maintain, or monitor. Just install the library and use it to store your features today.
+
+`feature-store` is a code library, available for [several languages](#usage), that allows you to persist your features wherever you want and to deserialize them to whatever data input format you need.
 
 ## Examples
 
-The following examples are for `TypeScript`, but you can choose [your prefered `feats/feature-store` language implementation](#usage).
+`feature-store` is implemented in [many languages](#usage). The following examples are for `TypeScript`.
 
 #### Persisting Feature Values
 
@@ -62,7 +64,7 @@ await model.fit(inputTensor, labelTensor)
 
 Learn more e.g. Point-in-Time correctness, offline-online feature values
 
-## Why `feats/feature-store`?
+## Why `feature-store`?
 
 - ✅ **Zero Infrastructure Dependencies**: Use with any storage, database, message broker you want
 - ✅ **Zero Tooling Dependencies**: Use with any ML framework you want
@@ -78,12 +80,12 @@ This means for you:
 
 ## Usage
 
-Pick your `feats/feature-store` implementation. See available languages below.
+Pick your `feature-store` implementation. See available languages below.
 
-> You can use different languages for persisting and deserializing, e.g. you can persist via `feats/feature-store-ts` and deserialize via `feats/feature-store-py`.
+> You can use different languages for persisting and deserializing, e.g. you can persist via `feature-store-ts` and deserialize via `feature-store-py`.
 
-- `Python`: [feats/feature-store-py][ffs-py]
-- `Node/JS/TS`: [feats/feature-store-ts][ffs-node]
+- `Python`: [feature-store-py][ffs-py]
+- `Node/JS/TS`: [feature-store-ts][ffs-node]
 
 ## Supported Persistence Systems
 
